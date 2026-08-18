@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Drag & Drop File Uploader</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+        <header class="page-header">
+
+            <div class="upload-icon">
+                ☁️
+            </div>
+
+            <h1>Drag & Drop File Uploader</h1>
+
+            <p>
+                Upload your images (JPG, PNG, GIF) and keep them saved.
+            </p>
+
+        </header>
+
+
+        <!-- ================= DROP AREA ================= -->
+        <section class="drop-area" id="dropArea">
+
+            <div class="drop-icon">
+                ⬆️
+            </div>
+
+            <h2>Drag & Drop your image here</h2>
+
+            <span class="or-text">or</span>
+
+            <button type="button" class="choose-btn" id="chooseBtn">
+                📁 Choose File
+            </button>
+
+            <input
+                type="file"
+                id="fileInput"
+                accept=".jpg,.jpeg,.png,.gif,image/jpeg,image/png,image/gif"
+                hidden
+            >
+
+            <p class="file-types">
+                Only JPG, PNG & GIF files are allowed.
+            </p>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                ⚠️ Only JPG, PNG and GIF files are allowed.
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAIN UPLOAD AREA ================= -->
+        <section class="upload-content">
+
+
+            <!-- ================= PREVIEW CARD ================= -->
+            <div class="card preview-card">
+
+                <div class="card-title">
+                    <span>🖼️</span>
+                    <h3>Preview</h3>
+                </div>
+
+                <div class="card-line"></div>
+
+                <div class="preview-container" id="previewContainer">
+
+                    <!-- Preview Image will appear here -->
+
+                    <div class="empty-preview" id="emptyPreview">
+                        <span>🖼️</span>
+                        <p>No image selected</p>
+                    </div>
+
+                </div>
+
+                <!-- Remove Selected Image -->
+                <button
+                    type="button"
+                    class="remove-preview"
+                    id="removePreview"
+                    title="Remove image"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <!-- ================= PROGRESS CARD ================= -->
+            <div class="card progress-card">
+
+                <div class="card-title">
+                    <span>◷</span>
+                    <h3>Upload Progress</h3>
+                </div>
+
+                <div class="card-line"></div>
+
+                <div class="progress-content">
+
+                    <p class="progress-label">
+                        Upload Progress
+                    </p>
+
+                    <h2 id="progressPercentage">
+                        0%
+                    </h2>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill"
+                        ></div>
+
+                    </div>
+
+                    <div class="progress-numbers">
+                        <span>0%</span>
+                        <span>100%</span>
+                    </div>
+
+
+                    <!-- Upload Button -->
+                    <button
+                        type="button"
+                        class="upload-btn"
+                        id="uploadBtn"
+                    >
+                        ☁️ Upload
+                    </button>
+
+
+                    <!-- Upload Status -->
+                    <div
+                        class="upload-status"
+                        id="uploadStatus"
+                    >
+                        <span>✓</span>
+                        <p>Upload status will appear here.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILE DETAILS CARD ================= -->
+            <div class="card details-card">
+
+                <div class="card-title">
+                    <span>📄</span>
+                    <h3>File Details</h3>
+                </div>
+
+                <div class="card-line"></div>
+
+
+                <!-- File Name -->
+                <div class="detail-row">
+
+                    <span class="detail-icon">
+                        📄
+                    </span>
+
+                    <div class="detail-info">
+                        <span>File Name</span>
+                        <strong id="fileName">--</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- File Type -->
+                <div class="detail-row">
+
+                    <span class="detail-icon">
+                        🗂️
+                    </span>
+
+                    <div class="detail-info">
+                        <span>File Type</span>
+                        <strong id="fileType">--</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- File Size -->
+                <div class="detail-row">
+
+                    <span class="detail-icon">
+                        ⬆️
+                    </span>
+
+                    <div class="detail-info">
+                        <span>File Size</span>
+                        <strong id="fileSize">--</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Information Box -->
+                <div class="info-box">
+
+                    <span>ⓘ</span>
+
+                    <p>
+                        Please select an image to view details.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= UPLOADED IMAGES ================= -->
+        <section class="uploaded-section">
+
+            <div class="uploaded-header">
+
+                <div class="uploaded-title">
+
+                    <span>🖼️</span>
+
+                    <h2>Uploaded Images</h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="clear-btn"
+                    id="clearAllBtn"
+                >
+                    🗑️ Clear All
+                </button>
+
+            </div>
+
+
+            <!-- Gallery -->
+            <div
+                class="image-gallery"
+                id="imageGallery"
+            >
+
+                <!--
+                    Uploaded images will be added here
+                    using JavaScript.
+                -->
+
+                <div
+                    class="empty-gallery"
+                    id="emptyGallery"
+                >
+                    <span>🖼️</span>
+                    <p>No uploaded images yet.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+
+            <p>
+                Drag, drop & upload your favorite images.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
